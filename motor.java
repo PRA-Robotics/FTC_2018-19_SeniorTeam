@@ -1,4 +1,5 @@
 import com.qualcomm.robotcore.hardware.*;
+import java.lang.*;
 
 public class motor{
     DcMotor motorID;
@@ -6,7 +7,7 @@ public class motor{
         motorID = m;
     }
 
-    public void initialize(){
+    public void initialize() throws Exception{
         try{
             motorID.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             motorID.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -15,7 +16,7 @@ public class motor{
         }
     }
 
-    public void turnOn(double power){
+    public void turnOn(double power) throws Exception{
         try{
             motorID.setPower(power);
         }catch(Exception e){
@@ -23,7 +24,7 @@ public class motor{
         }
     }
 
-    public void getEncoder(){
+    public void getEncoder() throws Exception{
         try{
             motorID.getCurrentPosition();
         }catch(Exception e){
