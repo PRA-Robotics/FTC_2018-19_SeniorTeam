@@ -4,13 +4,12 @@ import com.qualcomm.robotcore.hardware.*;
 @TeleOp(name="runner")
 
 public class runner extends OpMode{
-    //drive wheels = new drive(hardwareMap);
 
     public void init(){
 
     }
 
     public void loop(){
-
+      //drive.TurnOn(0.5);
     }
 }

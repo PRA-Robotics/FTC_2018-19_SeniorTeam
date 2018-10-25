@@ -1,5 +1,4 @@
 import com.qualcomm.robotcore.hardware.*;
-import java.lang.*;
 
 public class motor{
     DcMotor motorID;
@@ -24,9 +23,9 @@ public class motor{
         }
     }
 
-    public void getEncoder() throws Exception{
+    public int getEncoder() throws Exception{
         try{
-            motorID.getCurrentPosition();
+            return motorID.getCurrentPosition();
         }catch(Exception e){
             throw new Exception("Problem Getting Motor Encoder Values");
         }
