@@ -1,9 +1,6 @@
-import com.qualcomm.robotcore.hardware.*;
-
 public class intake{
-    HardwareMap hardwareMap;
-    public intake(HardwareMap hw){
-        hardwareMap = hw;
+    public intake(){
+
     }
 
     public void turnOn(){
