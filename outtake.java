@@ -4,7 +4,7 @@ public class outtake{
   }
 
   public void setExtendPower(){
-
+    
   }
 
   public void setUnfoldPower(){
