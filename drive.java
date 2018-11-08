@@ -1,5 +1,7 @@
 
 public class drive{
+    public static final DISTANCE_BETWEEN_WHEELS = 1;
+    public static final WHEEL_DIAMETER = 1;
     public drive(){
 
     }
@@ -10,6 +12,6 @@ public class drive{
     }
 
     public void turn(double degrees){
-
+       double rotations = (WHEEL_DIAMETER * degrees)/(360 * DISTANCE_BETWEEN_WHEELS);
     }
 }
