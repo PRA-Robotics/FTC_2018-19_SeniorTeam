@@ -35,7 +35,7 @@ public class TylerMotor{
         }
         */
         motorID.setPower(power);
-        doubleCall = (int)(10 * power);
+        doubleCall = (int)(10* power);
     }
 
     public int getDoubleCall(){

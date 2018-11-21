@@ -3,11 +3,29 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.hardware.*;
 
 public class DeviceHandler{
-    public static TylerMotor leftDrive = null;
-    public static TylerMotor rightDrive = null;
+    private DcMotor leftDrive = null;
+    private DcMotor rightDrive = null;
     public void init(HardwareMap hw){
-       leftDrive = new TylerMotor(hw.get(DcMotor.class, "leftMotor"));
-       rightDrive = new TylerMotor(hw.get(DcMotor.class, "rightMotor"));
+       leftDrive = hw.get(DcMotor.class, "leftMotor");
+       rightDrive = hw.get(DcMotor.class, "rightMotor");
+       initMotor(leftDrive);
+       initMotor(rightDrive);
+    }
+
+    private void initMotor(DcMotor m){
+      m.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+      m.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    }
+
+    public void turnOn(int m, double power){//0 is left drive, 1 is right
+      switch(m){
+        case 0:
+          leftDrive.setPower(power);
+          break;
+        case 1:
+          rightDrive.setPower(power);
+          break;
+      }
     }
     //motor outtakeBelt = new motor(hardwareMap.get("outtakeBelt"));
     //motor outtakeActuator = new motor(hardwareMap.get("outtakeActuator"));

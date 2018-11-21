@@ -13,13 +13,10 @@ public class runner extends OpMode{
 
     public void start(){
       foo.init(hardwareMap);
-      bar.init(foo);
       bar.Forward(0.1, foo);
     }
 
     public void loop(){
-      telemetry.addData("left:", foo.leftDrive.getDoubleCall());
-      telemetry.addData("right:", foo.rightDrive.getDoubleCall());
-      telemetry.update();
+      
     }
 }

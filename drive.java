@@ -10,15 +10,9 @@ public class drive{
 
     }
 
-    public void init(DeviceHandler dh){
-      dh.leftDrive.initialize();
-      dh.rightDrive.initialize();
-      dh.rightDrive.reverse();
-    }
-
     public void Forward(double power, DeviceHandler dh){
-        dh.leftDrive.turnOn(power);
-        dh.rightDrive.turnOn(power);
+        dh.turnOn(0, -power);
+        dh.turnOn(1, power);
     }
 /*
     public void turn(double degrees){
