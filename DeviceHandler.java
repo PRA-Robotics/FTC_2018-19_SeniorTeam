@@ -7,7 +7,9 @@ public class DeviceHandler{
     private DcMotor rightDrive = null;
     public void init(HardwareMap hw){
        leftDrive = hw.get(DcMotor.class, "leftMotor");
+       leftDrive.setDirection(DcMotor.Direction.FORWARD);
        rightDrive = hw.get(DcMotor.class, "rightMotor");
+       rightDrive.setDirection(DcMotor.Direction.REVERSE);
        initMotor(leftDrive);
        initMotor(rightDrive);
     }

@@ -10,8 +10,11 @@ public class drive{
 
     }
 
-    public void Forward(double power, DeviceHandler dh){
-        dh.turnOn(0, -power);
+    public static void LeftMotor(double power, DeviceHandler dh){
+        dh.turnOn(0, power);
+    }
+
+    public static void RightMotor(double power, DeviceHandler dh){
         dh.turnOn(1, power);
     }
 /*

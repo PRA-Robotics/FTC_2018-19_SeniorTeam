@@ -7,16 +7,19 @@ import com.qualcomm.robotcore.hardware.*;
 public class runner extends OpMode{
     public static DeviceHandler foo = new DeviceHandler();
     public static drive bar = new drive();
+    @Override
     public void init(){
-
-    }
-
-    public void start(){
       foo.init(hardwareMap);
-      bar.Forward(0.1, foo);
     }
 
+    @Override
+    public void start(){
+
+    }
+
+    @Override
     public void loop(){
-      
+      bar.LeftMotor(-gamepad1.left_stick_y, foo);
+      bar.RightMotor(-gamepad1.right_stick_y, foo);
     }
 }
