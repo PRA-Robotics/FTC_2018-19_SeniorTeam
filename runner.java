@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.*;
 import com.qualcomm.robotcore.hardware.*;
 
-@TeleOp(name="runner")
+@Autonomous(name="runner")
 
 public class runner extends OpMode{
     public static DeviceHandler foo = new DeviceHandler();
@@ -14,12 +14,11 @@ public class runner extends OpMode{
 
     @Override
     public void start(){
-
+      bar.Turn(90, foo);
     }
 
     @Override
     public void loop(){
-      bar.LeftMotor(-gamepad1.left_stick_y, foo);
-      bar.RightMotor(-gamepad1.right_stick_y, foo);
+      
     }
 }
