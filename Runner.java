@@ -10,7 +10,7 @@ public class Runner extends LinearOpMode{
 
     @Override
     public void runOpMode(){
-      foo.init(hardwareMap);
+      foo.init(hardwareMap, 0);
       waitForStart();
       while(opModeIsActive()){
         bar.Turn(90, foo);
