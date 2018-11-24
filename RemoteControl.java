@@ -4,21 +4,17 @@ import com.qualcomm.robotcore.hardware.*;
 
 @Autonomous(name="runner")
 
-public class runner extends OpMode{
+public class RemoteControl extends LinearOpMode{
     public static DeviceHandler foo = new DeviceHandler();
     public static drive bar = new drive();
+
     @Override
-    public void init(){
+    public void runOpMode(){
       foo.init(hardwareMap);
-    }
-
-    @Override
-    public void start(){
-      bar.Turn(90, foo);
-    }
-
-    @Override
-    public void loop(){
-      
+      waitForStart();
+      while(opModeIsActive()){
+        dh.moveMotor(0, gamepad1.left_stick_y);
+        dh.moveMotor(1, gamepad1.right_stick_y);
+      }
     }
 }
