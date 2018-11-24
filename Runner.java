@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.*;
 
 public class Runner extends LinearOpMode{
     public static DeviceHandler foo = new DeviceHandler();
-    public static drive bar = new drive();
+    public static Drive bar = new Drive();
 
     @Override
     public void runOpMode(){
