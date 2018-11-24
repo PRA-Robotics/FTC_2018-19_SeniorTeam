@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.*;
 import com.qualcomm.robotcore.hardware.*;
 
-@Autonomous(name="runner")
+@Autonomous(name="Autonomous")
 
 public class Runner extends LinearOpMode{
     public static DeviceHandler foo = new DeviceHandler();
