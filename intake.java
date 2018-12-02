@@ -1,16 +1,19 @@
 package org.firstinspires.ftc.teamcode;
 
-public class intake{
-    public static final double intakeSpinPower = 0.5;
-    public void spinOn(){
-      //deviceHandler.intakeSpin.turnOn(intakeSpinPower);
+public class Intake{
+    public static final double SPIN_POWER = 0.5;
+    double servoPosition = 0;
+    public static final double SERVO_SPEED = 0.1;
+    public void spinOn(DeviceHandler dh){
+      dh.moveMotor(3, SPIN_POWER);
     }
 
     public void spinOff(){
-      //deviceHandler.intakeSpin.turnOn(0);
+      dh.moveMotor(3, 0);
     }
 
-    public void setIntakeMovePower(double power){
-      //deviceHandler.intakeMove.turnOn(power);
+    public void rotateIntake(DeviceHandler dh, double power){
+      position += power * SERVO_SPEED;
+      dh.moveToPosition(0, position);
     }
 }
