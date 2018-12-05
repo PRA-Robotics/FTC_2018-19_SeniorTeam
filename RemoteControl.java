@@ -10,11 +10,12 @@ public class RemoteControl extends OpMode{
     public static Intake buzz = new Intake();
     public void init(){
       foo.init(hardwareMap, 1);
+      buzz.init(foo);
     }
 
     public void loop(){
       //foo.moveMotor(0, -gamepad1.left_stick_y);
       //foo.moveMotor(1, -gamepad1.right_stick_y);
-      buzz.setExtendPower(gamepad1.left_stick_y);
+      buzz.rotateIntake(foo, gamepad1.left_stick_y);
     }
 }
