@@ -12,8 +12,8 @@ public class DeviceHandler{
        //motors[2] = hw.get(DcMotor.class, "extendingMotor");
        //motors[3] = hw.get(DcMotor.class, "intakeMotor");
        servos[0] = hw.get(Servo.class, "intakeServo");
-       //servos[1] = hw.get(Servo.class, "leftOuttakeServo");
-       //servos[2] = hw.get(Servo.class, "rightOuttakeServo");
+       servos[1] = hw.get(Servo.class, "outakeServoL");
+       servos[2] = hw.get(Servo.class, "outakeServoR");
        //motors[0].setDirection(DcMotor.Direction.REVERSE);
        //motors[1].setDirection(DcMotor.Direction.FORWARD);
        for(int i = 0; i < motors.length; i++){
