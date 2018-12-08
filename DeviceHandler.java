@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.hardware.*;
 
 public class DeviceHandler{
-    private Servo[] servos = new Servo[1];
+    private Servo[] servos = new Servo[3];
     private DcMotor[] motors = new DcMotor[0];
     private static final double POWER = 0.3;
     public void init(HardwareMap hw, int mode){//mode represents Autonomous(0) or Teleop(1)
@@ -16,10 +16,12 @@ public class DeviceHandler{
        servos[2] = hw.get(Servo.class, "outakeServoR");
        //motors[0].setDirection(DcMotor.Direction.REVERSE);
        //motors[1].setDirection(DcMotor.Direction.FORWARD);
+       /*
        for(int i = 0; i < motors.length; i++){
          motors[i].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
          motors[i].setTargetPosition(0);
        }
+       */
        //motors[0].setMode(DcMotor.RunMode.RUN_TO_POSITION);
        //motors[1].setMode(DcMotor.RunMode.RUN_TO_POSITION);
        //motors[2].setMode(DcMotor.RunMode.RUN_USING_ENCODER);

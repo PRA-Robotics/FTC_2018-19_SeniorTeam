@@ -5,7 +5,7 @@ public class Drive{
     public static final double WHEEL_DIAMETER = 9.9;
     public static final int ENCODER_TICKS = 1120;
 
-    public static void Forward(double distance, DeviceHandler dh){
+    public static void Forward(double distance, DeviceHandler dh){//cm
         double rotations = (distance/(Math.PI * WHEEL_DIAMETER));
         int numTicks = (int)(rotations * ENCODER_TICKS);
         dh.moveTicks(0, numTicks);
