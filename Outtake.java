@@ -8,11 +8,11 @@ public class Outtake{
     //Color Sensor and Sorting System
   }
 
-  public double setAnglePower(DeviceHandler dh, double power){
+  public void setAnglePower(DeviceHandler dh, double power){
     servoChange = power * SERVO_SPEED;
-    dh.moveToPosition(1, dh.getServoPosition(1) + servoChange);
-    dh.moveToPosition(2, dh.getServoPosition(2) - servoChange);
-    return dh.getServoPosition(2);
+    dh.moveToPosition(1, dh.getServoPosition(1) - servoChange);
+    dh.moveToPosition(2, dh.getServoPosition(2) + servoChange);
+    //return (String) (dh.getServoPosition(1) + "+" +  dh.getServoPosition(2));
   }
 
   public void setUnfoldPower(DeviceHandler dh, double power){
