@@ -4,14 +4,15 @@ import com.qualcomm.robotcore.hardware.*;
 
 public class DeviceHandler{
     private Servo[] servos = new Servo[0];
-    private DcMotor[] motors = new DcMotor[2];
+    private DcMotor[] motors = new DcMotor[1];
     private static final double POWER = 0.3;
     public void init(HardwareMap hw, int mode){//mode represents Autonomous(0) or Teleop(1)
-       motors[0] = hw.get(DcMotor.class, "leftOuttakeMotor");
-       motors[1] = hw.get(DcMotor.class, "rightOuttakeMotor");
-       motors[2] = hw.get(DcMotor.class, "actuatorMotor");
+       //motors[0] = hw.get(DcMotor.class, "leftOuttakeMotor");
+       //motors[1] = hw.get(DcMotor.class, "rightOuttakeMotor");
+       //motors[2] = hw.get(DcMotor.class, "actuatorMotor");
        //motors[2] = hw.get(DcMotor.class, "extendingMotor");
        //motors[3] = hw.get(DcMotor.class, "intakeMotor");
+       motors[4] = hw.get(DcMotor.class, "elbowMotor");
        //servos[0] = hw.get(Servo.class, "intakeServo");
        //servos[1] = hw.get(Servo.class, "outakeServoL");
        //servos[2] = hw.get(Servo.class, "outakeServoR");
