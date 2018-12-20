@@ -18,9 +18,9 @@ public class Outtake{
 
   public void extend(DeviceHandler dh, double powerUp, double powerDown){
     if(powerUp > 0){
-      motorChange = power * MOTOR_SPEED;
+      motorChange = powerUp * MOTOR_SPEED;
     } else {
-      motorChange = -power * MOTOR_SPEED;
+      motorChange = -powerDown * MOTOR_SPEED;
     }
     dh.moveTicks(2, motorChange);
     dh.runMotorsToTargets();
@@ -30,6 +30,6 @@ public class Outtake{
     double unfoldPower = power * MOTOR_SPEED;
     /*dh.movrTicks(4, unfoldPower);
     dh.runMotorsToTargets();*/
-    return (String) (dh.getMotorPosition(4));
+    //return (String) (dh.getMotorPosition(4));
   }
 }

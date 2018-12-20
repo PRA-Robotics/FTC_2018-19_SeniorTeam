@@ -16,8 +16,12 @@ public class Intake{
       dh.moveMotor(3, 0);
     }
 
-    public void rotateIntake(DeviceHandler dh, double power){
-      servoPosition += power * SERVO_SPEED;
+    public void rotateIntake(DeviceHandler dh, double powerUp, double powerDown){
+      if(powerUp > 0){
+        servoPosition = powerUp * SERVO_SPEED;
+      } else {
+        servoPosition = -powerDown * SERVO_SPEED;
+      }
       dh.moveToPosition(0, servoPosition);
     }
 
@@ -28,4 +32,14 @@ public class Intake{
     public double getTargetPosition(){
       return servoPosition;
     }
-}
+
+    public void fish(DeviceHandler dh, double power){
+      servoPosition += power * SERVO_SPEED * 2;
+      dh.moveToPosition(1,servoPosition);
+    }
+
+    public void open(DeviceHandler dh, double power){
+      servoPosition += power * SERVO_SPEED;
+      dh.moveToPosition(2,servoPosition);
+    }
+  }

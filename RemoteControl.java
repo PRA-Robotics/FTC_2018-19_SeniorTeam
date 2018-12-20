@@ -18,8 +18,11 @@ public class RemoteControl extends OpMode{
       //foo.moveMotor(0, -gamepad1.left_stick_y);
       //foo.moveMotor(1, -gamepad1.right_stick_y);
       //buzz.rotateIntake(foo, gamepad1.left_stick_y);
-      telemetry.addData("position:", lightyear.setAnglePower(foo, gamepad1.right_stick_y));
-      telemetry.addData("Extent(Pun Intendet)",lightyear.extend(foo, gamepad1.right_trigger, gamepad1.left_trigger));
+      lightyear.setAnglePower(foo, gamepad1.right_stick_y);
+      lightyear.extend(foo, gamepad1.right_trigger, gamepad1.left_trigger);
+    //  buzz.open(foo,gamepad2.right_stick_y);
+      buzz.rotateIntake(foo,gamepad2.right_trigger,gamepad2.left_trigger);
+      buzz.fish(foo,gamepad2.left_stick_y);
       //telemetry.addData("Current Position:", buzz.getPosition(foo));
       //telemetry.addData("Target Position:", buzz.getTargetPosition());
       telemetry.update();
