@@ -6,7 +6,7 @@ public class DeviceHandler{
     private Servo[] servos = new Servo[3];
     private DcMotor[] motors = new DcMotor[6];
     private static final double POWER = 0.3;
-    public void initialize(HardwareMap hw, int mode){//mode represents Autonomous(0) or Teleop(1)
+    public void init(HardwareMap hw, int mode){//mode represents Autonomous(0) or Teleop(1)
        motors[0] = hw.get(DcMotor.class, "leftDrive");
        motors[1] = hw.get(DcMotor.class, "rightDrive");
        motors[2] = hw.get(DcMotor.class, "beltRotate");

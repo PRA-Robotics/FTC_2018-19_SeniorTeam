@@ -10,7 +10,7 @@ public class RemoteControl extends OpMode{
     public static Intake buzz = new Intake();
     public static Outtake lightyear = new Outtake();
     public void init(){
-      foo.initialize(hardwareMap, 1);
+      foo.init(hardwareMap, 1);
     }
 
     public void loop(){
