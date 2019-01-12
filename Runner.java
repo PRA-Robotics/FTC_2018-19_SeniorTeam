@@ -1,5 +1,4 @@
 package org.firstinspires.ftc.teamcode;
-import org.firstinspires.ftc.robotcore.external.ClassFactory;
 import com.qualcomm.robotcore.eventloop.opmode.*;
 import com.qualcomm.robotcore.hardware.*;
 
@@ -15,11 +14,17 @@ public class Runner extends LinearOpMode{
       foo.init(hardwareMap, 0);
       yan.init(hardwareMap);
       waitForStart();
+      int gold = -1;
+      while(gold == -1){
+        gold = yan.findGold();
+        telemetry.addData("Location:", gold);
+        telemetry.update();
+      }
+      yan.shutdown();
       while(opModeIsActive()){
         //bar.Turn(90, foo);
         //bar.Forward(25, foo);
-        telemetry.addData("Location:", yan.findGold());
-        telemetry.update();
+
       }
     }
 }

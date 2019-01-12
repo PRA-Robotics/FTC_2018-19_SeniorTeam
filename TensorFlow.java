@@ -31,6 +31,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.*;
 import java.util.List;
+import org.firstinspires.ftc.robotcore.external.ClassFactory;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection;
 import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
@@ -61,31 +62,31 @@ public class TensorFlow{
         tfod = ClassFactory.getInstance().createTFObjectDetector(tfodParameters, vuforia);
         tfod.loadModelFromAsset(TFOD_MODEL_ASSET, LABEL_GOLD_MINERAL, LABEL_SILVER_MINERAL);
       }
+      if (tfod != null) {
+          tfod.activate();
+      }
     }
 
     public int findGold() {
-        if (tfod != null) {
-            tfod.activate();
-        }
 
         if (tfod != null) {
           List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
           if (updatedRecognitions != null) {
             if (updatedRecognitions.size() == 2) {
               if(updatedRecognitions.get(0).getLabel().equals(LABEL_GOLD_MINERAL)){
-                tfod.shutdown();
                 return 0;
               }else if(updatedRecognitions.get(1).getLabel().equals(LABEL_GOLD_MINERAL)){
-                tfod.shutdown();
                 return 1;
               }else{
-                tfod.shutdown();
                 return 2;
               }
             }
-            tfod.shutdown();
-            return -1;
           }
         }
+        return -1;
+    }
+
+    public void shutdown(){
+      tfod.shutdown();
     }
 }
