@@ -13,20 +13,14 @@ public class DeviceHandler{
        motors[3] = hw.get(DcMotor.class, "leftOuttake");
        motors[4] = hw.get(DcMotor.class, "rightOuttake");
        motors[5] = hw.get(DcMotor.class, "intakeMotor");
-       //motors[6] = hw.get(DcMotor.class, "outtakeExtend");
        servos[0] = hw.get(Servo.class, "intakeRotation");
        servos[1] = hw.get(Servo.class, "netRotation");
        servos[2] = hw.get(Servo.class, "netAngleServo");
-       //servos[1] = hw.get(Servo.class, "outakeServoL");
-       //servos[2] = hw.get(Servo.class, "outakeServoR");
-       //motors[0].setDirection(DcMotor.Direction.REVERSE);
-       //motors[1].setDirection(DcMotor.Direction.FORWARD);
+       for(int i = 0; i < motors.length; i++){
+         motors[i].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-       //for(int i = 0; i < motors.length; i++){
-         //motors[i].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-         //motors[i].setTargetPosition(0);
-       //}
+         motors[i].setTargetPosition(0);
+       }
        if(mode == 0){
          motors[0].setMode(DcMotor.RunMode.RUN_TO_POSITION);
          motors[1].setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -36,9 +30,6 @@ public class DeviceHandler{
        }
        motors[4].setMode(DcMotor.RunMode.RUN_USING_ENCODER);
        motors[3].setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-       //motors[2].setMod(DcMotor.RunMode.RUN_TO_POSITION);
-       //motors[2].setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-       //motors[2].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
     public void changeServoPosBy(int s, double position){

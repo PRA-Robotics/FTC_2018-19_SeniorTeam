@@ -10,6 +10,8 @@ public class RemoteControl extends OpMode{
     public static Intake buzz = new Intake();
     public static Outtake lightyear = new Outtake();
     public void init(){
+      telemetry.addData("IM OVA HEA DAWG", "I See YA");
+      telemetry.update();
       foo.init(hardwareMap, 1);
     }
 
