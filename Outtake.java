@@ -10,8 +10,8 @@ public class Outtake{
 
   public void setAnglePower(DeviceHandler dh, double power){
     //motorChange += power * MOTOR_SPEED;
-    dh.moveMotor(3, power/10);
-    dh.moveMotor(4, power/10);
+    dh.moveMotor(3, power);
+    dh.moveMotor(4, power);
     //return (String) (dh.getServoPosition(1) + "+" +  dh.getServoPosition(2));
   }
 

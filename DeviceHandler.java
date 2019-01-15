@@ -28,8 +28,12 @@ public class DeviceHandler{
          motors[0].setMode(DcMotor.RunMode.RUN_USING_ENCODER);
          motors[1].setMode(DcMotor.RunMode.RUN_USING_ENCODER);
        }
+       motors[5].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
        motors[4].setMode(DcMotor.RunMode.RUN_USING_ENCODER);
        motors[3].setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+       motors[2].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+       motors[3].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+       motors[4].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
     public void changeServoPosBy(int s, double position){

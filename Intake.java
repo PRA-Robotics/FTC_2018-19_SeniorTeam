@@ -6,15 +6,15 @@ public class Intake{
     public static final double SERVO_SPEED = 0.001;
 
     public void spinOn(DeviceHandler dh){
-      dh.moveMotor(5, SPIN_POWER);
+      dh.moveMotor(5, 1);
     }
 
     public void spinOff(DeviceHandler dh){
       dh.moveMotor(5, 0);
     }
 
-    public void rotateIntake(DeviceHandler dh, double powerUp, double powerDown){
-      dh.changeServoPosBy(0, (powerUp - powerDown) * SERVO_SPEED);
+    public void rotateIntake(DeviceHandler dh, double power){
+      dh.changeServoPosBy(0, power * SERVO_SPEED);
     }
 
     public void fish(DeviceHandler dh, double power){
