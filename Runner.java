@@ -21,10 +21,6 @@ public class Runner extends LinearOpMode{
         telemetry.update();
       }
       yan.shutdown();
-      while(opModeIsActive()){
-        //bar.Turn(90, foo);
-        //bar.Forward(25, foo);
-
-      }
+      //Code goes here
     }
 }
