@@ -25,7 +25,7 @@ public class RemoteControl extends OpMode{
       telemetry.addData("Power", (gamepad1.dpad_left ? 1 : 0) - (gamepad1.dpad_right ? 1 : 0));
       telemetry.update();
       if(gamepad1.a){
-        foo.moveMotor(2, 1);
+        foo.moveMotor(2, -1);
       }else{
         foo.moveMotor(2, 0);
       }

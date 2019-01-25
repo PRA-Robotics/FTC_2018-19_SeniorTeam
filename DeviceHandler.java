@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.hardware.*;
 public class DeviceHandler{
     private Servo[] servos = new Servo[4];
     private DcMotor[] motors = new DcMotor[8];
+    private CRServo[] crservos = new CRServo[1];
     private static final double POWER = 0.3;
     public void init(HardwareMap hw, int mode){//mode represents Autonomous(0) or Teleop(1)
        motors[0] = hw.get(DcMotor.class, "leftDrive");
@@ -15,10 +16,11 @@ public class DeviceHandler{
        motors[5] = hw.get(DcMotor.class, "intakeMotor");
        motors[6] = hw.get(DcMotor.class, "hangingMotor");
        motors[7] = hw.get(DcMotor.class, "extendingMotor");
-       servos[0] = hw.get(Servo.class, "intakeRotation");
-       servos[1] = hw.get(Servo.class, "netRotation");
+       servos[0] = hw.get(Servo.class, "intakeRotationLeft");
+       servos[1] = hw.get(Servo.class, "intakeRotationRight");
        servos[2] = hw.get(Servo.class, "netAngleServo");
        servos[3] = hw.get(Servo.class, "unfoldingServo");
+       crservos[0] = hw.get(CRServo.class, "netRotation");
        for(int i = 0; i < motors.length; i++){
          motors[i].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -39,7 +41,9 @@ public class DeviceHandler{
        motors[2].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
        motors[3].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
        motors[4].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+       setServoPosition(0, getServoPosition(0));
        setServoPosition(3, 0.5);
+       setServoPosition(1, getServoPosition(1));
     }
 
     public void changeServoPosBy(int s, double position){
@@ -51,7 +55,7 @@ public class DeviceHandler{
     }
 
     public void continousServoPower(int s, double power){
-      servos[s].setPosition(power);
+      crservos[s].setPower(power);
     }
 
     public void setServoPosition(int s, double position){
