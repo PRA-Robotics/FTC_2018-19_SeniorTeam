@@ -42,7 +42,7 @@ public class DeviceHandler{
        motors[3].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
        motors[4].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
        setServoPosition(0, getServoPosition(0));
-       setServoPosition(3, 0.5);
+       setServoPosition(3, 0);
        setServoPosition(1, getServoPosition(1));
     }
 
