@@ -74,9 +74,9 @@ public class TensorFlow{
           if (updatedRecognitions != null) {
             if (updatedRecognitions.size() == 2) {
               if(updatedRecognitions.get(0).getLabel().equals(LABEL_GOLD_MINERAL)){
-                return 0;
-              }else if(updatedRecognitions.get(1).getLabel().equals(LABEL_GOLD_MINERAL)){
                 return 1;
+              }else if(updatedRecognitions.get(1).getLabel().equals(LABEL_GOLD_MINERAL)){
+                return 0;
               }else{
                 return 2;
               }

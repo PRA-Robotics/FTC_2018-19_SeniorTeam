@@ -16,8 +16,8 @@ public class RemoteControl extends OpMode{
     }
 
     public void loop(){
-      foo.moveMotor(0, gamepad1.left_stick_y * 0.5);
-      foo.moveMotor(1, -gamepad1.right_stick_y * 0.5);
+      foo.moveMotor(0, gamepad1.left_stick_y);
+      foo.moveMotor(1, -gamepad1.right_stick_y);
       lightyear.setAnglePower(foo, gamepad1.right_trigger - gamepad1.left_trigger);
       lightyear.setUnfoldPower(foo, (gamepad1.dpad_left ? 1 : 0) - (gamepad1.dpad_right ? 1 : 0));
       lightyear.extend(foo, (gamepad1.left_bumper ? 1 : 0) - (gamepad1.right_bumper ? 1 : 0));

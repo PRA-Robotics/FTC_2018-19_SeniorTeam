@@ -23,9 +23,9 @@ public class DeviceHandler{
        crservos[0] = hw.get(CRServo.class, "netRotation");
        for(int i = 0; i < motors.length; i++){
          motors[i].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
          motors[i].setTargetPosition(0);
        }
+       //THIS IS IMPORTANT!!!
        if(mode == 0){
          motors[0].setMode(DcMotor.RunMode.RUN_TO_POSITION);
          motors[1].setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -67,13 +67,13 @@ public class DeviceHandler{
     }
 
     public void runMotorsToTargets(){
-      for(int i = 0; i < motors.length; i++){
+      for(int i = 0; i < 2; i++){
         motors[i].setPower(POWER);
       }
       while(!shouldMoveOn()){
 
       }
-      for(int i = 0; i < motors.length; i++){
+      for(int i = 0; i < 2; i++){
         motors[i].setPower(0);
       }
     }
