@@ -3,9 +3,9 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.hardware.*;
 
 public class DeviceHandler{
-    private Servo[] servos = new Servo[4];
+    private Servo[] servos = new Servo[2];
     private DcMotor[] motors = new DcMotor[8];
-    private CRServo[] crservos = new CRServo[1];
+    private CRServo[] crservos = new CRServo[3];
     private static final double POWER = 0.3;
     public void init(HardwareMap hw, int mode){//mode represents Autonomous(0) or Teleop(1)
        motors[0] = hw.get(DcMotor.class, "leftDrive");
@@ -18,9 +18,12 @@ public class DeviceHandler{
        motors[7] = hw.get(DcMotor.class, "extendingMotor");
        servos[0] = hw.get(Servo.class, "intakeRotationLeft");
        servos[1] = hw.get(Servo.class, "intakeRotationRight");
-       servos[2] = hw.get(Servo.class, "netAngleServo");
-       servos[3] = hw.get(Servo.class, "unfoldingServo");
-       crservos[0] = hw.get(CRServo.class, "netRotation");
+       //servos[2] = hw.get(Servo.class, "netAngleServo");
+       //servos[3] = hw.get(Servo.class, "unfoldingServo");
+       //crservos[0] = hw.get(CRServo.class, "netRotation");
+       crservos[0] = hw.get(CRServo.class, "unfoldLeft");
+       crservos[1] = hw.get(CRServo.class, "unfoldRight");
+       crservos[2] = hw.get(CRServo.class, "shovel");
        for(int i = 0; i < motors.length; i++){
          motors[i].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
          motors[i].setTargetPosition(0);
@@ -36,14 +39,17 @@ public class DeviceHandler{
        motors[5].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
        motors[6].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
        motors[7].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-       motors[4].setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-       motors[3].setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+       motors[4].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+       motors[3].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
        motors[2].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
        motors[3].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
        motors[4].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-       setServoPosition(0, getServoPosition(0));
-       setServoPosition(3, 0);
-       setServoPosition(1, getServoPosition(1));
+       setServoPosition(0, 0.5106);
+       setServoPosition(1, 0.4739);
+    }
+
+    public double getMotorPower(int m){
+      return motors[m].getPower();
     }
 
     public void changeServoPosBy(int s, double position){

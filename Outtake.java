@@ -17,7 +17,8 @@ public class Outtake{
   }
 
   public void setUnfoldPower(DeviceHandler dh, double power){
-    double servoChange = power * 0.001;
-    dh.changeServoPosBy(3, servoChange);
+      dh.continousServoPower(0, (power/2));
+      dh.continousServoPower(1, (-power/2));
+      //dh.continousServoPower(1, -1);
   }
 }

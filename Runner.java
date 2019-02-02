@@ -14,6 +14,9 @@ public class Runner extends LinearOpMode{
       foo.init(hardwareMap, 0);
       yan.init(hardwareMap);
       waitForStart();
+      foo.moveMotor(6, 1);
+      sleep(10000);//14000
+      foo.moveMotor(6, 0);
       //foo.moveMotor(6, 1);
       //sleep(14000);
       //foo.moveMotor(6, 0);
@@ -37,10 +40,12 @@ public class Runner extends LinearOpMode{
       bar.turn(-90, foo);
       */
       //blah blah blah
+      /*
       bar.turn(70,foo);
       bar.forward(85,foo);
       bar.turn(-80,foo);
       bar.forward(139,foo);
       bar.forward(-150,foo);
+      */
     }
 }

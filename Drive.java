@@ -20,4 +20,11 @@ public class Drive{
        dh.moveTicks(1, numTicks);
        dh.runMotorsToTargets();
     }
+
+    public void bank(int motor,double degrees, DeviceHandler dh){
+      double rotations = ((DISTANCE_BETWEEN_WHEELS * degrees)/(180 * WHEEL_DIAMETER));
+      int numTicks = (int)(rotations * ENCODER_TICKS);
+      dh.moveTicks(motor,numTicks);
+      dh.runMotorsToTargets();
+    }
 }

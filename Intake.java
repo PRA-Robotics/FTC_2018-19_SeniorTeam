@@ -13,16 +13,24 @@ public class Intake{
       dh.moveMotor(5, 0);
     }
 
+    public void spinOut(DeviceHandler dh){
+      dh.moveMotor(5,1);
+    }
+
     public void rotateIntake(DeviceHandler dh, double power){
       dh.changeServoPosBy(0, power * SERVO_SPEED);
       dh.changeServoPosBy(1, -power * SERVO_SPEED);
     }
 
+    public void dig(DeviceHandler dh, double power){
+      dh.continousServoPower(2, power/2);
+    }
+
     public void fish(DeviceHandler dh, double power){
-      dh.continousServoPower(0, (power*0.7));
+      //dh.continousServoPower(0, (power*0.7));
     }
 
     public void angleNet(DeviceHandler dh, double power){
-      dh.setServoPosition(2, (power/2) + 0.5);
+      //dh.setServoPosition(2, (power/2) + 0.5);
     }
   }
