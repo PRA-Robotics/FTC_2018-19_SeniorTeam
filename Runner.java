@@ -15,7 +15,7 @@ public class Runner extends LinearOpMode{
       yan.init(hardwareMap);
       waitForStart();
       foo.moveMotor(6, 1);
-      sleep(10000);//14000
+      sleep(4900);//14000
       foo.moveMotor(6, 0);
       //foo.moveMotor(6, 1);
       //sleep(14000);

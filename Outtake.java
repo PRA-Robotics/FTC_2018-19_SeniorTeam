@@ -8,8 +8,8 @@ public class Outtake{
   }
 
   public void setAnglePower(DeviceHandler dh, double power){
-    dh.moveMotor(3, power);
-    dh.moveMotor(4, power);
+    dh.moveMotor(3, power*0.5);
+    dh.moveMotor(4, power*0.5);
   }
 
   public void extend(DeviceHandler dh, double power){
