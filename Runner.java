@@ -17,7 +17,7 @@ public class Runner extends LinearOpMode{
       //foo.moveMotor(6, 1);
       //sleep(4900);//14000
       //foo.moveMotor(6, 0);
-      bar.forward(-9,foo);
+      bar.back(-9,foo);
       bar.turn(90,foo);
       bar.forward(105,foo);
       telemetry.addData("Left Motor Position", foo.getMotorPosition(0));
