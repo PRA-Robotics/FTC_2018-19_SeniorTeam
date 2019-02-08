@@ -24,5 +24,6 @@ public class Intake{
 
     public void dig(DeviceHandler dh, double power){
       dh.continousServoPower(2, power/2);
+      dh.continousServoPower(3,-power/2);
     }
   }

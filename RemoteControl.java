@@ -19,7 +19,8 @@ public class RemoteControl extends OpMode{
       lightyear.setAnglePower(foo, gamepad1.right_trigger - gamepad1.left_trigger);
       lightyear.setUnfoldPower(foo, (gamepad1.dpad_left ? 1 : 0) - (gamepad1.dpad_right ? 1 : 0));
       lightyear.extend(foo, (gamepad1.left_bumper ? 1 : 0) - (gamepad1.right_bumper ? 1 : 0));
-      buzz.dig(foo, gamepad2.right_stick_y);
+      telemetry.addData("Left Motor Position", foo.getMotorPosition(0));
+      telemetry.addData("Right Motor Position", foo.getMotorPosition(1));
       telemetry.update();
       if(gamepad1.a){
         foo.moveMotor(2, -1);
@@ -37,7 +38,7 @@ public class RemoteControl extends OpMode{
       }else{
         foo.moveMotor(6, 0);
       }
-
+      //Gamepad 2
       buzz.rotateIntake(foo, gamepad2.right_trigger - gamepad2.left_trigger);
 
       if(gamepad2.a){
@@ -47,5 +48,7 @@ public class RemoteControl extends OpMode{
       }else{
         buzz.spinOff(foo);
       }
+
+      buzz.dig(foo, gamepad2.right_stick_y);
     }
 }

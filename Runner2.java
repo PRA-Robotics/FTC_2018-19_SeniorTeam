@@ -17,6 +17,7 @@ public class Runner2 extends LinearOpMode{
       foo.moveMotor(6, 1);
       sleep(14000);
       foo.moveMotor(6, 0);
+      bar.forward(-10, foo);
       bar.turn(-10, foo);
       int gold = -1;
       while(gold == -1){

@@ -5,8 +5,8 @@ import com.qualcomm.robotcore.hardware.*;
 public class DeviceHandler{
     private Servo[] servos = new Servo[2];
     private DcMotor[] motors = new DcMotor[8];
-    private CRServo[] crservos = new CRServo[3];
-    private static final double POWER = 0.3;
+    private CRServo[] crservos = new CRServo[4];
+    private double motorPower = 0;
     public void init(HardwareMap hw, int mode){//mode represents Autonomous(0) or Teleop(1)
        motors[0] = hw.get(DcMotor.class, "leftDrive");
        motors[1] = hw.get(DcMotor.class, "rightDrive");
@@ -24,6 +24,7 @@ public class DeviceHandler{
        crservos[0] = hw.get(CRServo.class, "unfoldLeft");
        crservos[1] = hw.get(CRServo.class, "unfoldRight");
        crservos[2] = hw.get(CRServo.class, "shovel");
+       crservos[3] = hw.get(CRServo.class, "shovel2");
        for(int i = 0; i < motors.length; i++){
          motors[i].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
          motors[i].setTargetPosition(0);
@@ -42,6 +43,8 @@ public class DeviceHandler{
        motors[4].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
        motors[3].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
        motors[2].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+       motors[0].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+       motors[1].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
        motors[3].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
        motors[4].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
        setServoPosition(0, 0.5106);
@@ -72,9 +75,27 @@ public class DeviceHandler{
       return servos[s].getPosition();
     }
 
+    public double getMotorPosition(int m){
+      return motors[m].getCurrentPosition();
+    }
+
     public void runMotorsToTargets(){
+      /*
+      motorPower = 0;
+      while(!shouldMoveOn()){
+        if(motorPower < 0.5){
+          motorPower += 0.001;
+        }
+        for(int i = 0; i < 2; i++){
+          motors[i].setPower(motorPower);
+        }
+      }
       for(int i = 0; i < 2; i++){
-        motors[i].setPower(POWER);
+        motors[i].setPower(0);
+      }
+      */
+      for(int i = 0; i < 2; i++){
+        motors[i].setPower(0.5);
       }
       while(!shouldMoveOn()){
 
@@ -85,7 +106,7 @@ public class DeviceHandler{
     }
 
     public boolean shouldMoveOn(){
-      for(int i = 0; i < motors.length; i++){
+      for(int i = 0; i < 2; i++){
         if(motors[i].isBusy()){
           return false;
         }

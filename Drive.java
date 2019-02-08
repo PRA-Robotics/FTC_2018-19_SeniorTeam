@@ -9,11 +9,12 @@ public class Drive{
         double rotations = (distance/(Math.PI * WHEEL_DIAMETER));
         int numTicks = (int)(rotations * ENCODER_TICKS);
         dh.moveTicks(0, -numTicks);
-        dh.moveTicks(1, numTicks);
+        dh.moveTicks(1, (int)(numTicks*(0.4)));
         dh.runMotorsToTargets();
     }
 
     public void turn(double degrees, DeviceHandler dh){
+      degrees+= 10;
        double rotations = (DISTANCE_BETWEEN_WHEELS * degrees)/(360 * WHEEL_DIAMETER);
        int numTicks = (int)(rotations * ENCODER_TICKS);
        dh.moveTicks(0, numTicks);

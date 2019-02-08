@@ -14,9 +14,18 @@ public class Runner extends LinearOpMode{
       foo.init(hardwareMap, 0);
       yan.init(hardwareMap);
       waitForStart();
-      foo.moveMotor(6, 1);
-      sleep(4900);//14000
-      foo.moveMotor(6, 0);
+      //foo.moveMotor(6, 1);
+      //sleep(4900);//14000
+      //foo.moveMotor(6, 0);
+      bar.forward(-9,foo);
+      bar.turn(90,foo);
+      bar.forward(105,foo);
+      telemetry.addData("Left Motor Position", foo.getMotorPosition(0));
+      telemetry.addData("Right Motor Position", foo.getMotorPosition(1));
+      telemetry.update();
+      //foo.moveMotor(0, 1);
+      //sleep(1000);
+      //foo.moveMotor(0,0);
       //foo.moveMotor(6, 1);
       //sleep(14000);
       //foo.moveMotor(6, 0);
@@ -47,5 +56,8 @@ public class Runner extends LinearOpMode{
       bar.forward(139,foo);
       bar.forward(-150,foo);
       */
+      //while(true){
+
+      //}
     }
 }
