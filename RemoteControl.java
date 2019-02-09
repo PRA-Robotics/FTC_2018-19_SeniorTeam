@@ -26,7 +26,7 @@ public class RemoteControl extends OpMode{
         foo.moveMotor(2, -1);
       }
       else if(gamepad1.y){
-        foo.moveMotor(2,1);
+        foo.moveMotor(2, 1);
       }else{
         foo.moveMotor(2, 0);
       }

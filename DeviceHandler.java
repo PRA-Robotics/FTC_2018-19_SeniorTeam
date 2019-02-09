@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.hardware.*;
 
 public class DeviceHandler{
-    private Servo[] servos = new Servo[2];
+    private Servo[] servos = new Servo[3];
     private DcMotor[] motors = new DcMotor[8];
     private CRServo[] crservos = new CRServo[4];
     private double motorPower = 0;
@@ -18,6 +18,7 @@ public class DeviceHandler{
        motors[7] = hw.get(DcMotor.class, "extendingMotor");
        servos[0] = hw.get(Servo.class, "intakeRotationLeft");
        servos[1] = hw.get(Servo.class, "intakeRotationRight");
+       servos[2] = hw.get(Servo.class, "marker");
        //servos[2] = hw.get(Servo.class, "netAngleServo");
        //servos[3] = hw.get(Servo.class, "unfoldingServo");
        //crservos[0] = hw.get(CRServo.class, "netRotation");
@@ -79,21 +80,36 @@ public class DeviceHandler{
       return motors[m].getCurrentPosition();
     }
 
-    public void runMotorsToTargets(){
-      /*
+    public void runMotorsToTargets(int stupid){
       motorPower = 0;
       while(!shouldMoveOn()){
         if(motorPower < 0.5){
-          motorPower += 0.001;
+          motorPower += 0.01;
         }
-        for(int i = 0; i < 2; i++){
-          motors[i].setPower(motorPower);
+        if(stupid == 1){
+          motors[0].setPower(motorPower);
+          if(true){
+            motors[1].setPower(motorPower+0.1);
+          }else{
+            motors[1].setPower(motorPower);
+          }
+        }else if(stupid == 2){
+          motors[1].setPower(motorPower);
+          if(true){
+            motors[0].setPower(motorPower+0.25);
+          }else{
+            motors[0].setPower(motorPower);
+          }
+        }else{
+          for(int i = 0; i < 2; i++){
+            motors[i].setPower(motorPower);
+          }
         }
       }
       for(int i = 0; i < 2; i++){
         motors[i].setPower(0);
       }
-      */
+      /*
       for(int i = 0; i < 2; i++){
         motors[i].setPower(0.5);
       }
@@ -103,6 +119,7 @@ public class DeviceHandler{
       for(int i = 0; i < 2; i++){
         motors[i].setPower(0);
       }
+      */
     }
 
     public boolean shouldMoveOn(){

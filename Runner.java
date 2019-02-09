@@ -12,17 +12,23 @@ public class Runner extends LinearOpMode{
     @Override
     public void runOpMode(){
       foo.init(hardwareMap, 0);
-      yan.init(hardwareMap);
+      //yan.init(hardwareMap);
       waitForStart();
       //foo.moveMotor(6, 1);
       //sleep(4900);//14000
       //foo.moveMotor(6, 0);
-      bar.back(-9,foo);
-      bar.turn(90,foo);
-      bar.forward(105,foo);
+
+      bar.back(9,foo);
+      bar.turn(60,foo);
+      //bar.back(-45,foo);
+      bar.forward(125, foo);
+      foo.setServoPosition(2,1);
+      bar.turn(-25,foo);
+      bar.back(150,foo);
       telemetry.addData("Left Motor Position", foo.getMotorPosition(0));
       telemetry.addData("Right Motor Position", foo.getMotorPosition(1));
       telemetry.update();
+
       //foo.moveMotor(0, 1);
       //sleep(1000);
       //foo.moveMotor(0,0);
